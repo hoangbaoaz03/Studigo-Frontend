@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,7 +8,7 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 
-export default function CheckoutSuccessPage() {
+function CheckoutSuccessContent() {
     const searchParams = useSearchParams();
     const sessionId = searchParams.get('session_id');
     const orderId = searchParams.get('order_id');
@@ -65,5 +65,13 @@ export default function CheckoutSuccessPage() {
                 </div>
             </Card>
         </div>
+    );
+}
+
+export default function CheckoutSuccessPage() {
+    return (
+        <Suspense fallback={<div className="min-h-[80vh] flex items-center justify-center">Loading...</div>}>
+            <CheckoutSuccessContent />
+        </Suspense>
     );
 }
