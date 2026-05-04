@@ -13,12 +13,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { user, logout, loading } = useAuth();
 
   React.useEffect(() => {
-      if (!loading && (!user || !user.is_business)) {
+      if (!loading && (!user || !(user as any).is_business)) {
           router.push('/business');
       }
   }, [user, loading, router]);
 
-  if (loading || !user || !user.is_business) {
+  if (loading || !user || !(user as any).is_business) {
       return <div className="min-h-screen flex items-center justify-center bg-gray-100">Loading workspace...</div>;
   }
 
