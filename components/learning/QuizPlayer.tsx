@@ -201,7 +201,6 @@ export function QuizPlayer({ lecture, onCompleted }: QuizPlayerProps) {
                                 <RadioGroup 
                                     value={answers[q.id.toString()] || ""}
                                     onValueChange={(val) => handleAnswerSelect(q.id.toString(), val)}
-                                    disabled={!!result}
                                     className="space-y-2.5"
                                 >
                                     {q.choices.map((choice: any, cIdx: number) => {
