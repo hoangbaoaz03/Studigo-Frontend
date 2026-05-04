@@ -35,7 +35,7 @@ export function CategoryChart({ data }: CategoryChartProps) {
                             <Tooltip 
                                 contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px' }}
                                 itemStyle={{ color: '#fff' }}
-                                formatter={(value: number) => `$${value.toFixed(2)}`}
+                                formatter={(value: any) => `$${Number(value).toFixed(2)}`}
                             />
                             <Legend />
                         </PieChart>
