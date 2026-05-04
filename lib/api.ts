@@ -861,3 +861,12 @@ export const updateAdminPermissions = async (userId: number, allowedModules: str
     return response.data;
 };
 
+export const generateQuizFromDoc = async (sectionId: number, title: string, file: File) => {
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('file', file);
+    const response = await api.post(`/courses/sections/${sectionId}/generate-quiz/`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+    });
+    return response.data;
+};
