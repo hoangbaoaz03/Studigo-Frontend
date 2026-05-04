@@ -100,6 +100,7 @@ export interface User {
   bio: string;
   is_staff?: boolean;
   is_superuser?: boolean;
+  is_business?: boolean;
   website?: string;
   linkedin?: string;
   twitter?: string;
